@@ -9,12 +9,21 @@ const lookup = {
   'U': 'H','V': 'I','W': 'J','X': 'K',
   'Y': 'L','Z': 'M', '?': '?', ',': ','
 };
-
-function rot13(encodedStr){
-   let decodedArr = []; // Your Result goes here
+function rot13(encodedStr) {
+  var words = encodedStr.split(" "); // String to Array
+  let decodedArr = []; // Your Result goes here
   // Only change code below this line
-
-  return ;//return decodedArr
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    let decoded_word = "";
+    for (let j = 0; j < word.length; j++) {
+      var char = word.charAt(j);
+      var decoded_char = lookup[char];
+      decoded_word += decoded_char;
+    }
+    decodedArr.push(decoded_word);
+  }
+  return decodedArr.join(" ");
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
